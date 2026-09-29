@@ -1,0 +1,27 @@
+# окружение
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.env
+
+# данные и модели (не коммитим)
+data/raw/*
+data/processed/*
+data/splits/*
+models/
+*.pt
+*.bin
+*.safetensors
+*.onnx
+*.parquet
+checkpoints/
+runs/
+
+# оставляем маркеры пустых папок
+!**/.gitkeep

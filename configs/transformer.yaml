@@ -1,0 +1,8 @@
+# Fine-tuning rubert-tiny2 (Фаза 4)
+model_name: cointegrated/rubert-tiny2
+seeds: [42, 123, 2026]
+max_length: 128        # уточнить по распределению длин из Фазы 1
+batch_size: 32
+learning_rate: 5.0e-5
+epochs: 3
+class_weight: null     # по выводам Фазы 3

@@ -1,0 +1,20 @@
+# Пути и параметры данных. Никаких захардкоженных путей и seed'ов в коде.
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  splits_dir: data/splits
+  reports_dir: reports
+  experiments_csv: reports/experiments.csv
+
+dataset:
+  name: geo-reviews-dataset-2023   # уточнить источник в Фазе 1
+  text_column: text
+  rating_column: rating            # шкала выясняется в Фазе 1
+
+split:
+  seed: 42
+  train: 0.70
+  val: 0.15
+  test: 0.15
+  group_key: null                  # выбирается по итогам аудита (Фаза 1)
+  version: v1
