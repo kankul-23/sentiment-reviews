@@ -25,3 +25,5 @@ runs/
 
 # оставляем маркеры пустых папок
 !**/.gitkeep
+!data/splits/split_*.parquet
+!data/splits/split_*.json

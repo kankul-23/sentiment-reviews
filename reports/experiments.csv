@@ -1,1 +1,2 @@
 experiment_id,phase,model,dataset_size,split_version,seed,tfidf_params,model_params,eval_split,macro_f1,mae,accuracy,train_time,inference_time,notes
+20260930-094909-1a4ce1,2,tfidf-word12+logreg (smoke),20000,v1,42,"{""analyzer"": ""word"", ""max_features"": 200000, ""min_df"": 3, ""ngram_range"": [1, 2], ""sublinear_tf"": true}","{""C"": 1.0, ""class_weight"": null, ""max_iter"": 1000}",val,0.3775,0.3022,0.835,4.52,3.16,smoke test

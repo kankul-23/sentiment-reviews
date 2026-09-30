@@ -1,0 +1,21 @@
+{
+  "version": "v1",
+  "seed": 42,
+  "fractions": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "group_key": "name",
+  "rows": {
+    "train": 351249,
+    "val": 72662,
+    "test": 74752
+  },
+  "groups": {
+    "train": 100508,
+    "val": 21531,
+    "test": 21536
+  },
+  "test_ids_sha256": "feae76e78cca3cdd50ecf45a08474e9ecf209455aed2904422a0177c0b16a944"
+}
