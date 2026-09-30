@@ -1,6 +1,7 @@
 # Пути и параметры данных. Никаких захардкоженных путей и seed'ов в коде.
 paths:
   raw_dir: data/raw
+  raw_file: geo-reviews-dataset-2023.tskv
   processed_dir: data/processed
   splits_dir: data/splits
   reports_dir: reports
@@ -16,5 +17,5 @@ split:
   train: 0.70
   val: 0.15
   test: 0.15
-  group_key: null                  # выбирается по итогам аудита (Фаза 1)
+  group_key: name                # выбирается по итогам аудита (Фаза 1)
   version: v1
