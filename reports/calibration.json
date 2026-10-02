@@ -1,0 +1,9 @@
+{
+  "method": "temperature scaling: softmax(log p / T), T fitted on val by log-loss",
+  "transformer_seed": 42,
+  "temperature": {
+    "baseline": 0.8436,
+    "transformer": 1.3507,
+    "ensemble": 1.2997
+  }
+}
