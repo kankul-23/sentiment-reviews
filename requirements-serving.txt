@@ -1,0 +1,8 @@
+# Зависимости образа сервиса. torch (CPU-сборка) ставится в Dockerfile отдельной командой.
+# Перед публикацией зафиксируйте версии из рабочего окружения: pip freeze | findstr /i "transformers fastapi uvicorn pydantic"
+transformers>=4.40
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.5
+pyyaml>=6.0
+numpy>=1.26

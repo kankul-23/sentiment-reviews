@@ -1,0 +1,10 @@
+# В образ попадает только то, что нужно сервису (белый список).
+*
+!requirements-serving.txt
+!src/__init__.py
+!src/serving
+!configs/transformer.yaml
+!reports/calibration.json
+!models/rubert-tiny2/seed_42
+**/__pycache__
+**/*.pyc

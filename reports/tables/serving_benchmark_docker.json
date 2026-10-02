@@ -1,0 +1,37 @@
+{
+  "url": "http://localhost:8001",
+  "model_info": {
+    "version": "0.1.0",
+    "model_name": "cointegrated/rubert-tiny2",
+    "model_dir": "models/rubert-tiny2/seed_42",
+    "calibration_seed": 42,
+    "temperature": 1.3507,
+    "max_length": 256,
+    "device": "cpu",
+    "torch_threads": 2,
+    "calibration": "temperature scaling, T подобрана на val"
+  },
+  "n_single": 300,
+  "single_ms_p50": 6.136250000054133,
+  "single_ms_p95": 11.174794999169535,
+  "batch": {
+    "1": {
+      "latency_s_median": 0.007123200000933139,
+      "texts_per_s": 140.3863431981413
+    },
+    "8": {
+      "latency_s_median": 0.03560675000153424,
+      "texts_per_s": 224.67650093466247
+    },
+    "32": {
+      "latency_s_median": 0.24087915000200155,
+      "texts_per_s": 132.84669926697308
+    },
+    "64": {
+      "latency_s_median": 0.31553639999947336,
+      "texts_per_s": 202.8292139991038
+    }
+  },
+  "client_cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "note": "задержка включает HTTP, токенизацию, инференс и калибровку; клиент и сервер на одной машине"
+}
