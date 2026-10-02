@@ -1,0 +1,11 @@
+{
+  "model": "models\\rubert-tiny2\\seed_42",
+  "n_params": 29195333,
+  "size_mb": 119.2,
+  "latency_ms_p50": 5.406899999798043,
+  "latency_ms_p95": 8.335219999935362,
+  "throughput_batch": 32,
+  "throughput_texts_per_s": 911.1162376595034,
+  "torch_threads": 24,
+  "process_rss_mb": 2315.051008
+}

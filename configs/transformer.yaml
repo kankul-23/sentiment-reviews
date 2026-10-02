@@ -1,8 +1,54 @@
 # Fine-tuning rubert-tiny2 (Фаза 4)
+device: auto
+
 model_name: cointegrated/rubert-tiny2
 seeds: [42, 123, 2026]
-max_length: 256       # уточнить по распределению длин из Фазы 1
-batch_size: 32
-learning_rate: 5.0e-5
-epochs: 3
-class_weight: null     # по выводам Фазы 3
+
+num_threads: null            # число потоков torch на CPU; null = по умолчанию
+
+output:
+  models_dir: models/rubert-tiny2        # веса по seed'ам (вне git)
+  predictions_dir: data/predictions      # вероятности на val/test для Фазы 5 (вне git)
+
+# Параметры обучения по умолчанию (используются в bench и search; final берёт их же,
+# но поверх накладывает блок `selected`).
+train:
+  max_length: 256            # динамический паддинг; 98% отзывов целиком влезают (аудит, Фаза 1)
+  batch_size: 32
+  learning_rate: 5.0e-5
+  epochs: 3
+  warmup_ratio: 0.06
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  length_bucketing: true     # батчи из отзывов близкой длины: на CPU заметно быстрее
+  class_weight: none         # "none" или "balanced"; решается в search
+  log_every: 100             # печатать loss каждые N шагов
+  amp: auto           # auto | fp16 | bf16 | none (только на GPU)
+
+eval:
+  batch_size: 128
+
+# Замер скорости ДО планирования (python -m src.models.transformer --bench)
+bench:
+  train_size: 2000           # на скольких отзывах мерим время шага обучения
+  eval_size: 1000            # на скольких отзывах мерим инференс
+  candidate_sizes: [25000, 50000, 100000, 351249]
+
+# Небольшой поиск на val (python -m src.models.transformer --search): сетка lr x class_weight,
+# один seed, фиксированное число эпох. Это 6 запусков по умолчанию, не десятки.
+search:
+  seed: 42
+  train_size: 50000          # бейзлайн на 50k: macro-F1 val 0.509 (word+char, balanced)
+  val_size: null             # null = весь val; число = случайная подвыборка val (быстрее, но шумнее)
+  epochs: 3
+  eval_each_epoch: false     # true: дополнительно метрики на val после каждой эпохи (дольше)
+  learning_rate: [3.0e-5, 5.0e-5, 1.0e-4]
+  class_weight: ["none", "balanced"]
+
+# Заполняется ВРУЧНУЮ по итогам search (и bench: сколько успеваем).
+# Эти значения накладываются на блок `train`. train_size: число или "full".
+selected:
+  learning_rate: 1.0e-4
+  epochs: 3
+  class_weight: none
+  train_size: full
