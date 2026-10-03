@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Классификация рейтинга по русскоязычным отзывам (Geo Reviews 2023)"
 readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
 # torch сюда не входит: ставится отдельно под ваше железо (CPU или CUDA), см. README.
 dependencies = [
     "numpy",
