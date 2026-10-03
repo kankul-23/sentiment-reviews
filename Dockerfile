@@ -14,7 +14,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # CPU-сборка torch заметно меньше стандартной (без CUDA)
-RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
+RUN pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
 COPY requirements-serving.txt .
 RUN pip install -r requirements-serving.txt
 

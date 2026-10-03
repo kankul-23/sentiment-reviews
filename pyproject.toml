@@ -8,21 +8,24 @@ version = "0.1.0"
 description = "Классификация рейтинга по русскоязычным отзывам (Geo Reviews 2023)"
 readme = "README.md"
 requires-python = ">=3.10"
+# torch сюда не входит: ставится отдельно под ваше железо (CPU или CUDA), см. README.
 dependencies = [
     "numpy",
     "pandas",
     "pyarrow",
     "scikit-learn",
+    "scipy",            # calibration.py (подбор температуры)
+    "joblib",           # baseline.py (сохранение модели)
     "pyyaml",
     "matplotlib",
     "seaborn",
     "tqdm",
     "datasets",
-    "transformers",
+    "transformers>=4.40",
     "datasketch",
-    "fastapi",
-    "uvicorn[standard]",
-    "pydantic",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "pydantic>=2.5",    # схемы сервиса написаны под pydantic v2
 ]
 
 [project.optional-dependencies]
